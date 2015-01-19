@@ -33,8 +33,8 @@ if (node['postgresql']['contrib'].attribute?('extensions'))
         psql -d template0 -f `pg_config --sharedir`/contrib/#{pg_ext}.sql
       EOH
       action :run
-      ::Chef::Resource.send(:include, Opscode::PostgresqlHelpers)
-      not_if {extension_installed?(pg_ext)}
+      # ::Chef::Resource.send(:include, Opscode::PostgresqlHelpers)
+      # not_if {extension_installed?(pg_ext)}
     end
   end
 end
