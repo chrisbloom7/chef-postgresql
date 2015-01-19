@@ -30,7 +30,7 @@ if (node['postgresql']['contrib'].attribute?('extensions'))
     bash "install-#{pg_ext}-extension" do
       user 'postgres'
       code <<-EOH
-        psql -d template0 -f `pg_config --sharedir`/contrib/#{pg_ext}.sql
+        psql -d template1 -f `pg_config --sharedir`/contrib/#{pg_ext}.sql
       EOH
       action :run
       # ::Chef::Resource.send(:include, Opscode::PostgresqlHelpers)
